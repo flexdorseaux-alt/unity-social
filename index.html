@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-const CONFIG_URL = ''; // À remplir avec l'URL Supabase du projet
-const CONFIG_ANON_KEY = ''; // À remplir avec la clé publique anon/publishable (jamais la clé service_role)
+const CONFIG_URL = 'https://bwtejxjyvltutdyuvnvf.supabase.co';
+const CONFIG_ANON_KEY = 'COLLE_TA_PUBLISHABLE_KEY_ICI'; https://bwtejxjyvltutdyuvnvf.supabase.co
 const supabase = CONFIG_URL && CONFIG_ANON_KEY ? createClient(CONFIG_URL, CONFIG_ANON_KEY) : null;
 let user = null, isSignup = false, demo = !supabase;
 const $ = id => document.getElementById(id);
