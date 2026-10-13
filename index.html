@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#24150f">
+<title>Unity — Tout en un, plus proche de toi</title>
+<style>
+:root{--bg:#1b100c;--panel:#291a13;--panel2:#382419;--line:#4b3325;--text:#fff5e9;--muted:#c3ab98;--accent:#c58a58;--accent2:#f0c79b;--green:#89a77a;--danger:#ffb3a7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#3a2418 0,#1b100c 56%);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}a{color:var(--accent2)}
+.wrap{max-width:1150px;margin:auto;display:grid;grid-template-columns:215px minmax(0,650px) 230px;gap:20px;padding:20px}
+.brand{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:850;letter-spacing:-1px}.logo{height:42px;width:42px;border-radius:14px;background:linear-gradient(145deg,#f0c79b,#9b6037);color:#2b170d;display:grid;place-items:center;font-size:27px;font-weight:900;box-shadow:0 5px 18px #0005}.tagline{font-size:11px;color:var(--muted);margin:6px 0 28px 52px}
+.left{position:sticky;top:20px;height:max-content}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:var(--muted);padding:12px;border-radius:12px;text-align:left;display:flex;gap:13px;align-items:center}.nav button.active,.nav button:hover{background:#49301f;color:#fff4e5}.sym{font-size:20px;width:22px;text-align:center}.primary{background:linear-gradient(100deg,#e5b889,#b97c4a);color:#2a170d;border:0;border-radius:13px;font-weight:800;padding:12px 15px}.left .primary{width:100%;margin-top:18px}.muted{color:var(--muted)}main{min-width:0}.top{display:flex;justify-content:space-between;align-items:center;margin:2px 0 17px}.top h1{font-size:22px;margin:0}.top p{font-size:12px;color:var(--muted);margin:4px 0 0}.panel{background:linear-gradient(150deg,#2d1d15,#21140f);border:1px solid var(--line);border-radius:18px;margin-bottom:15px;overflow:hidden;box-shadow:0 9px 24px #0002}.stories{display:flex;gap:14px;overflow:auto;padding:15px}.story{border:0;background:transparent;color:var(--text);min-width:57px;text-align:center;font-size:11px}.ring{width:55px;height:55px;border-radius:50%;padding:3px;margin:0 auto 6px;background:linear-gradient(135deg,#f1c99d,#ad6c3e)}.avatar{height:100%;width:100%;border-radius:50%;background:#563a29;border:2px solid #291a13;display:grid;place-items:center;font-size:20px}.composer{display:flex;gap:10px;padding:14px;align-items:center}.face{width:42px;height:42px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#805339,#d5a276);color:#fff5e9;font-weight:800}.composer input,.field{width:100%;min-width:0;border:1px solid #543a29;background:#1b100c;color:var(--text);border-radius:24px;padding:12px 15px;outline:none}.composer input:focus,.field:focus{border-color:var(--accent)}.compose-actions{display:flex;gap:8px;padding:0 14px 14px 66px}.smallbtn{background:#3a281d;border:1px solid #533a29;color:#f7e5d2;border-radius:10px;padding:8px 10px;font-size:12px}.posthead{display:flex;align-items:center;gap:10px;padding:14px 15px 7px}.posthead .face{width:38px;height:38px}.author{font-weight:750;font-size:14px}.meta{font-size:11px;color:var(--muted);margin-top:2px}.posttext{padding:6px 15px 14px;white-space:pre-wrap;overflow-wrap:anywhere}.postimage{width:100%;max-height:460px;object-fit:cover;display:block;background:#3a281d}.poststats{padding:11px 15px;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}.actions{display:flex;padding:4px 8px}.actions button{flex:1;border:0;background:transparent;color:#ead7c5;padding:10px 2px;border-radius:10px}.actions button:hover,.actions button.liked{color:#f0c79b;background:#49301f}.right .panel{padding:15px}.right h3{font-size:14px;margin:0 0 12px}.profile{display:flex;gap:10px;align-items:center}.profile p{margin:0;font-weight:750}.profile small{display:block;color:var(--muted);font-size:11px}.hint{font-size:12px;color:var(--muted);line-height:1.6}.status{display:none;border-radius:12px;padding:11px 13px;background:#3b2a1b;color:#ffe0b8;margin-bottom:13px;font-size:13px}.status.error{background:#45211d;color:var(--danger)}.auth{max-width:440px;margin:7vh auto;padding:25px}.auth h2{margin:0 0 5px}.auth p{color:var(--muted);font-size:13px}.auth label{display:block;font-size:12px;color:var(--muted);margin:12px 0 5px}.language-row{margin:14px 0 20px}.language-row label{margin:0 0 6px!important}.language-row select{border-radius:11px;appearance:auto}.auth .field{border-radius:11px}.auth .primary{width:100%;margin-top:14px}.authrow{display:flex;gap:8px}.authrow>*{flex:1}.hidden{display:none!important}.bottom{display:none}.empty{text-align:center;padding:35px 18px;color:var(--muted)}.pill{display:inline-block;border:1px solid #65442c;border-radius:99px;padding:3px 8px;font-size:10px;color:var(--accent2)}
+@media(max-width:950px){.wrap{grid-template-columns:65px minmax(0,650px);justify-content:center;gap:13px;padding:13px}.left .brand span,.tagline,.nav .label,.left .primary span{display:none}.left .brand{justify-content:center}.nav button{justify-content:center;padding:12px 6px}.left .primary{font-size:20px;padding:9px}.right{display:none}}
+@media(max-width:560px){.wrap{display:block;padding:10px 9px 75px}.left{display:none}.top h1{font-size:19px}.panel{border-radius:16px}.compose-actions{padding-left:12px}.bottom{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;justify-content:space-around;background:#1b100cf5;border-top:1px solid var(--line);padding:8px 4px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}.bottom button{border:0;background:none;color:var(--muted);display:grid;justify-items:center;gap:2px;font-size:20px}.bottom small{font-size:9px}.auth{margin:4vh 12px;padding:20px}.authrow{flex-direction:column}}
+</style>
+</head>
+<body>
+<section id="authScreen" class="panel auth">
+  <div class="brand"><div class="logo">U</div><span>Unity</span></div>
+  <p>Tout en un, plus proche de toi.</p>
+  <div class="language-row"><label for="languageSelect" id="languageLabel">🌐 Langue / Language</label><select id="languageSelect" class="field" aria-label="Choisir la langue"><option value="fr">Français</option><option value="en">English</option><option value="sw">Kiswahili</option><option value="ln">Lingála</option><option value="pt">Português</option><option value="es">Español</option></select></div>
+  <h2 id="authTitle">Rejoins Unity</h2><p id="authSubtitle">Connecte-toi pour retrouver ta communauté.</p>
+  <form id="authForm">
+    <div id="nameWrap" class="hidden"><label for="displayName">Ton nom</label><input class="field" id="displayName" autocomplete="name" placeholder="Paul Iloko"></div>
+    <div id="phoneWrap" class="hidden"><label for="phoneNumber">Numéro de téléphone (facultatif)</label><input class="field" id="phoneNumber" type="tel" autocomplete="tel" placeholder="+2547XXXXXXXX"><p class="hint">Le SMS ne sera activé qu’après configuration et vérification du fournisseur SMS.</p></div>
+    <label for="email">Adresse e-mail</label><input class="field" id="email" type="email" autocomplete="email" required placeholder="toi@exemple.com">
+    <label for="password">Mot de passe</label><input class="field" id="password" type="password" minlength="6" autocomplete="current-password" required placeholder="6 caractères minimum">
+    <button id="authSubmit" class="primary" type="submit">Se connecter</button>
+  </form>
+  <button id="forgotPassword" class="smallbtn" style="width:100%;margin-top:8px">Mot de passe oublié ?</button>
+  <section id="recoveryPanel" class="hidden" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line)">
+    <h3 id="recoveryTitle" style="margin:0 0 5px">Récupérer mon compte</h3>
+    <p id="recoveryHelp" class="hint">Choisis une méthode. Pour le SMS, un fournisseur de téléphonie doit être configuré.</p>
+    <label for="recoveryMethod">Méthode de récupération</label>
+    <select id="recoveryMethod" class="field" style="border-radius:11px">
+      <option value="email">E-mail</option>
+      <option value="phone">Numéro de téléphone / SMS</option>
+    </select>
+    <div id="recoveryEmailWrap"><label for="recoveryEmail">Adresse e-mail du compte</label><input class="field" id="recoveryEmail" type="email" placeholder="toi@exemple.com"></div>
+    <div id="recoveryPhoneWrap" class="hidden"><label for="recoveryPhone">Numéro au format international</label><input class="field" id="recoveryPhone" type="tel" placeholder="+2547XXXXXXXX" autocomplete="tel"><p class="hint">Utilise l’indicatif du pays, par exemple +254 pour le Kenya ou +243 pour la RDC.</p></div>
+    <button id="sendRecovery" class="primary" type="button" style="width:100%;margin-top:12px">Envoyer le lien / code</button>
+    <div id="resetPasswordWrap" class="hidden"><label for="newPassword">Nouveau mot de passe</label><input class="field" id="newPassword" type="password" minlength="8" autocomplete="new-password" placeholder="8 caractères minimum"><button id="saveNewPassword" class="primary" type="button" style="width:100%;margin-top:10px">Réinitialiser le mot de passe</button></div>
+  </section>
+  <button id="toggleAuth" class="smallbtn" style="width:100%;margin-top:10px">Créer un compte</button>
+  <p class="hint">Cette version utilise Supabase quand tu ajoutes tes clés de configuration. Sans configuration, le mode démo te permet de tester l'interface sur cet appareil.</p>
+</section>
+<div id="appScreen" class="wrap hidden">
+  <aside class="left"><div class="brand"><div class="logo">U</div><span>Unity</span></div><div class="tagline" data-i18n="tagline">Tout en un, plus proche de toi</div>
+    <nav class="nav"><button class="active" data-view="Accueil"><span class="sym">⌂</span><span class="label">Accueil</span></button><button data-view="Amis"><span class="sym">♧</span><span class="label">Amis</span></button><button data-view="Messages"><span class="sym">▤</span><span class="label">Messages</span></button><button data-view="Vidéos"><span class="sym">▷</span><span class="label">Vidéos</span></button><button data-view="Notifications"><span class="sym">♧</span><span class="label">Notifications</span></button><button data-view="Profil"><span class="sym">◎</span><span class="label">Mon profil</span></button></nav>
+    <button id="sidePost" class="primary">＋ <span>Créer une publication</span></button>
+  </aside>
+  <main><header class="top"><div><h1 id="pageTitle" data-i18n="homeTitle">Ton espace, tes proches.</h1><p data-i18n="homeSubtitle">Partage un moment avec ta communauté.</p></div><button id="signOut" class="smallbtn">Déconnexion</button></header>
+    <div id="status" class="status" role="status"></div>
+    <section class="panel stories"><button class="story" id="addStory"><div class="ring"><div class="avatar">＋</div></div>Ta story</button><button class="story"><div class="ring"><div class="avatar">👩🏽</div></div>Sophie</button><button class="story"><div class="ring"><div class="avatar">🧑🏾</div></div>David</button><button class="story"><div class="ring"><div class="avatar">👩🏿</div></div>Aïcha</button><button class="story"><div class="ring"><div class="avatar">🧔🏽</div></div>Kevin</button></section>
+    <section class="panel"><form id="postForm"><div class="composer"><div class="face" id="myFace">U</div><input id="postInput" maxlength="1000" placeholder="Quoi de neuf ?" data-i18n-placeholder="composerPlaceholder" required></div><div class="compose-actions"><button class="smallbtn" type="button" id="imageToggle">▧ Photo (URL)</button><button class="smallbtn" type="button" id="videoInfo">▷ Vidéo</button><button class="primary" style="margin-left:auto;padding:8px 14px" type="submit">Publier</button></div><div id="imageWrap" class="hidden" style="padding:0 14px 14px"><input id="imageUrl" class="field" type="url" placeholder="URL publique de l'image (https://…)"></div></form></section>
+    <div id="feed"></div>
+  </main>
+  <aside class="right"><section class="panel"><h3>Ton profil</h3><div class="profile"><div class="face" id="profileFace">U</div><div><p id="profileName">Membre Unity</p><small id="profileEmail"></small></div></div><p class="hint" style="margin-top:12px">Bienvenue dans un espace pour partager, discuter et rester proche des tiens.</p></section><section class="panel"><h3>À découvrir</h3><p class="hint">#UnityCommunity<br>Créateurs près de toi<br>Groupes populaires<br><br>Les amis, groupes, Stories et appels seront ajoutés par étapes.</p></section><section class="panel hint">Unity · Version de démarrage<br>Chocolat, crème et doré doux.</section></aside>
+</div>
+<nav id="mobileNav" class="bottom hidden"><button data-view="Accueil">⌂<small>Accueil</small></button><button data-view="Amis">♧<small>Amis</small></button><button id="mobilePost">⊕<small>Publier</small></button><button data-view="Messages">▤<small>Messages</small></button><button data-view="Profil">◎<small>Profil</small></button></nav>
+
+<script>
+const UNITY_LANGS = {
+ fr:{languageLabel:"🌐 Choisis ta langue",tagline:"Tout en un, plus proche de toi",authTitle:"Rejoins Unity",authSubtitle:"Connecte-toi pour retrouver ta communauté.",signIn:"Se connecter",signUp:"Créer un compte",already:"J’ai déjà un compte",create:"Créer mon compte",homeTitle:"Ton espace, tes proches.",homeSubtitle:"Partage un moment avec ta communauté.",composerPlaceholder:"Quoi de neuf ?",navHome:"Accueil",navFriends:"Amis",navMessages:"Messages",navVideos:"Vidéos",navNotifications:"Notifications",navProfile:"Mon profil",post:"Publier",logout:"Déconnexion",story:"Ta story",profile:"Ton profil",demo:"Mode démo : les données ne sont pas envoyées sur Internet.",forgot:"Mot de passe oublié ?",recovery:"Récupérer mon compte",sendRecovery:"Envoyer le lien / code",phone:"Numéro de téléphone (facultatif)"},
+ en:{languageLabel:"🌐 Choose your language",tagline:"All in one, closer to you",authTitle:"Join Unity",authSubtitle:"Sign in to reconnect with your community.",signIn:"Sign in",signUp:"Create an account",already:"I already have an account",create:"Create my account",homeTitle:"Your space, your people.",homeSubtitle:"Share a moment with your community.",composerPlaceholder:"What's on your mind?",navHome:"Home",navFriends:"Friends",navMessages:"Messages",navVideos:"Videos",navNotifications:"Notifications",navProfile:"My profile",post:"Post",logout:"Log out",story:"Your story",profile:"Your profile",demo:"Demo mode: your data is not being sent to the internet.",forgot:"Forgot password?",recovery:"Recover my account",sendRecovery:"Send link / code",phone:"Phone number (optional)"},
+ sw:{languageLabel:"🌐 Chagua lugha yako",tagline:"Vyote pamoja, karibu zaidi",authTitle:"Jiunge na Unity",authSubtitle:"Ingia ili kuwasiliana na jamii yako.",signIn:"Ingia",signUp:"Fungua akaunti",already:"Tayari nina akaunti",create:"Fungua akaunti yangu",homeTitle:"Mahali pako, watu wako.",homeSubtitle:"Shiriki wakati na jamii yako.",composerPlaceholder:"Una mawazo gani?",navHome:"Nyumbani",navFriends:"Marafiki",navMessages:"Ujumbe",navVideos:"Video",navNotifications:"Arifa",navProfile:"Wasifu wangu",post:"Chapisha",logout:"Toka",story:"Hadithi yako",profile:"Wasifu wako",demo:"Hali ya majaribio: data haijatumwa kwenye intaneti.",forgot:"Umesahau nenosiri?",recovery:"Rejesha akaunti yangu",sendRecovery:"Tuma kiungo / msimbo",phone:"Nambari ya simu (si lazima)"},
+ ln:{languageLabel:"🌐 Pona monɔkɔ na yo",tagline:"Nyonso esika moko, penepene na yo",authTitle:"Yaka na Unity",authSubtitle:"Kɔtá mpo ozala lisusu elongo na bato na yo.",signIn:"Kɔtá",signUp:"Fungola konti",already:"Nazali na konti",create:"Fungola konti na ngai",homeTitle:"Esika na yo, bato na yo.",homeSubtitle:"Kabola ntango moko na bato na yo.",composerPlaceholder:"Ozali kokanisa nini?",navHome:"Ndako",navFriends:"Baninga",navMessages:"Bansango",navVideos:"Bavideo",navNotifications:"Biyebisi",navProfile:"Profil na ngai",post:"Tinda",logout:"Bima",story:"Lisolo na yo",profile:"Profil na yo",demo:"Mode ya komeka: makambo etindami te na internet.",forgot:"Obosani mot de passe?",recovery:"Zongisa konti na ngai",sendRecovery:"Tinda lien / code",phone:"Numéro ya telefone (na bolingi)"},
+ pt:{languageLabel:"🌐 Escolha o seu idioma",tagline:"Tudo num só lugar, mais perto de ti",authTitle:"Junte-se à Unity",authSubtitle:"Entre para se conectar com a sua comunidade.",signIn:"Entrar",signUp:"Criar conta",already:"Já tenho uma conta",create:"Criar a minha conta",homeTitle:"O seu espaço, as suas pessoas.",homeSubtitle:"Partilhe um momento com a comunidade.",composerPlaceholder:"O que está a pensar?",navHome:"Início",navFriends:"Amigos",navMessages:"Mensagens",navVideos:"Vídeos",navNotifications:"Notificações",navProfile:"O meu perfil",post:"Publicar",logout:"Sair",story:"A tua história",profile:"O teu perfil",demo:"Modo de demonstração: os dados não são enviados para a internet.",forgot:"Esqueceu a palavra-passe?",recovery:"Recuperar a minha conta",sendRecovery:"Enviar link / código",phone:"Número de telefone (opcional)"},
+ es:{languageLabel:"🌐 Elige tu idioma",tagline:"Todo en uno, más cerca de ti",authTitle:"Únete a Unity",authSubtitle:"Inicia sesión para conectar con tu comunidad.",signIn:"Iniciar sesión",signUp:"Crear cuenta",already:"Ya tengo una cuenta",create:"Crear mi cuenta",homeTitle:"Tu espacio, tu gente.",homeSubtitle:"Comparte un momento con tu comunidad.",composerPlaceholder:"¿Qué tienes en mente?",navHome:"Inicio",navFriends:"Amigos",navMessages:"Mensajes",navVideos:"Vídeos",navNotifications:"Notificaciones",navProfile:"Mi perfil",post:"Publicar",logout:"Cerrar sesión",story:"Tu historia",profile:"Tu perfil",demo:"Modo de demostración: tus datos no se envían a internet.",forgot:"¿Olvidaste tu contraseña?",recovery:"Recuperar mi cuenta",sendRecovery:"Enviar enlace / código",phone:"Número de teléfono (opcional)"}
+};
+function unitySetLanguage(lang){
+ const t=UNITY_LANGS[lang]||UNITY_LANGS.fr;
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(t[k])el.textContent=t[k]});
+ document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.dataset.i18nPlaceholder;if(t[k])el.placeholder=t[k]});
+ const title=document.getElementById('authTitle'); if(title) title.textContent=document.getElementById('authSubmit')?.dataset.signup==="true"?t.signUp:t.authTitle;
+ const subtitle=document.getElementById('authSubtitle'); if(subtitle)subtitle.textContent=t.authSubtitle;
+ const submit=document.getElementById('authSubmit');if(submit)submit.textContent=submit.dataset.signup==="true"?t.create:t.signIn;
+ const toggle=document.getElementById('toggleAuth');if(toggle)toggle.textContent=toggle.dataset.signup==="true"?t.already:t.signUp;
+ const names={Accueil:t.navHome,Amis:t.navFriends,Messages:t.navMessages,Vidéos:t.navVideos,Notifications:t.navNotifications,Profil:t.navProfile};
+ document.querySelectorAll('[data-view]').forEach(b=>{const v=b.dataset.view;const label=b.querySelector('.label');if(label&&names[v])label.textContent=names[v];const small=b.querySelector('small');if(small&&names[v])small.textContent=names[v]});
+ const out=document.getElementById('signOut');if(out)out.textContent=t.logout;
+ const forgot=document.getElementById('forgotPassword');if(forgot&&t.forgot)forgot.textContent=t.forgot;
+ const recoveryTitle=document.getElementById('recoveryTitle');if(recoveryTitle&&t.recovery)recoveryTitle.textContent=t.recovery;
+ const sendRecovery=document.getElementById('sendRecovery');if(sendRecovery&&t.sendRecovery)sendRecovery.textContent=t.sendRecovery;
+ const postInput=document.getElementById('postInput');if(postInput)postInput.placeholder=t.composerPlaceholder;
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ const sel=document.getElementById('languageSelect');if(!sel)return;
+ const saved=localStorage.getItem('unity-language')||'fr';sel.value=saved;unitySetLanguage(saved);
+ sel.addEventListener('change',()=>{localStorage.setItem('unity-language',sel.value);unitySetLanguage(sel.value)});
+});
+</script>
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+const CONFIG_URL = ''; // À remplir avec l'URL Supabase du projet
+const CONFIG_ANON_KEY = ''; // À remplir avec la clé publique anon/publishable (jamais la clé service_role)
+const supabase = CONFIG_URL && CONFIG_ANON_KEY ? createClient(CONFIG_URL, CONFIG_ANON_KEY) : null;
+let user = null, isSignup = false, demo = !supabase;
+const $ = id => document.getElementById(id);
+function notice(message,error=false){const el=$('status');el.textContent=message;el.classList.toggle('error',error);el.style.display='block';setTimeout(()=>el.style.display='none',5000)}
+function setMode(mode){isSignup=mode;$('authSubmit').dataset.signup=String(mode);$('toggleAuth').dataset.signup=String(mode);$('nameWrap').classList.toggle('hidden',!mode);$('phoneWrap').classList.toggle('hidden',!mode);$('displayName').required=mode;unitySetLanguage(document.getElementById('languageSelect')?.value||'fr')}
+function showApp(profile){$('authScreen').classList.add('hidden');$('appScreen').classList.remove('hidden');$('mobileNav').classList.remove('hidden');const name=profile?.display_name||user?.user_metadata?.display_name||user?.email?.split('@')[0]||'Membre Unity';$('profileName').textContent=name;$('profileEmail').textContent=user?.email||'Mode démo sur cet appareil';$('myFace').textContent=(name[0]||'U').toUpperCase();$('profileFace').textContent=$('myFace').textContent;loadPosts()}
+function showAuth(){$('appScreen').classList.add('hidden');$('mobileNav').classList.add('hidden');$('authScreen').classList.remove('hidden')}
+function escapeHtml(s=''){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function postCard(p){const article=document.createElement('article');article.className='panel';const who=escapeHtml(p.display_name||'Membre Unity');article.innerHTML=`<div class="posthead"><div class="face">${who.slice(0,1).toUpperCase()}</div><div><div class="author">${who}</div><div class="meta">${p.created_at?new Date(p.created_at).toLocaleString():'À l’instant'} · Public</div></div></div><div class="posttext"></div>${p.image_url?'<img class="postimage" alt="Image de la publication">':''}<div class="poststats">Unity · Partage tes moments</div><div class="actions"><button class="like">♡ J’aime</button><button class="comment">▢ Commenter</button><button class="share">↗ Partager</button></div>`;article.querySelector('.posttext').textContent=p.content||'';if(p.image_url)article.querySelector('.postimage').src=p.image_url;article.querySelector('.like').onclick=()=>{const b=article.querySelector('.like');b.classList.toggle('liked');b.textContent=b.classList.contains('liked')?'♥ J’aime':'♡ J’aime';if(!demo)notice('Le bouton J’aime visuel est prêt ; la table likes sera reliée dans la prochaine étape.')};article.querySelector('.comment').onclick=()=>notice('Les commentaires seront ajoutés dans la prochaine étape.');article.querySelector('.share').onclick=async()=>{try{if(navigator.share)await navigator.share({title:'Unity',text:p.content||'Découvre Unity'});else await navigator.clipboard.writeText(p.content||'Découvre Unity');notice('Partage lancé ou texte copié.')}catch{}};return article}
+async function loadPosts(){const feed=$('feed');feed.replaceChildren();if(supabase&&user){const {data,error}=await supabase.from('posts').select('id,content,image_url,created_at,profiles(display_name)').order('created_at',{ascending:false}).limit(50);if(error){notice('Chargement des publications impossible : '+error.message,true);return}for(const p of data||[])feed.append(postCard({...p,display_name:p.profiles?.display_name}));if(!data?.length)feed.innerHTML='<div class="panel empty">Bienvenue sur Unity ! Sois le premier à publier un moment. ☕</div>'}else{const demoPosts=[{display_name:'Sarah Muntu',content:'Belle journée à tous ! ☀️ Profitez des petits moments et prenez soin de ceux qui comptent. ❤️',image_url:'',created_at:new Date().toISOString()},{display_name:'Thomas K.',content:'Un nouveau jour, une nouvelle opportunité. On avance ensemble. 🚀✨',created_at:new Date(Date.now()-3600000).toISOString()}];demoPosts.forEach(p=>feed.append(postCard(p)));}}
+$('toggleAuth').onclick=()=>setMode(!isSignup);
+$('authForm').onsubmit=async e=>{e.preventDefault();const email=$('email').value.trim(),password=$('password').value;try{if(!supabase){user={email,user_metadata:{display_name:isSignup?$('displayName').value.trim():'Paul Iloko'}};notice('Mode démo activé : les données ne sont pas envoyées sur Internet.');showApp();return}if(isSignup){const {data,error}=await supabase.auth.signUp({email,password,options:{data:{display_name:$('displayName').value.trim()}}});if(error)throw error;user=data.user;if(!data.session){notice('Compte créé. Vérifie ta boîte e-mail pour confirmer ton inscription.');return}}else{const {data,error}=await supabase.auth.signInWithPassword({email,password});if(error)throw error;user=data.user}const {data:profile}=await supabase.from('profiles').select('display_name').eq('id',user.id).maybeSingle();showApp(profile)}catch(err){notice(err.message||'Une erreur est survenue.',true)}};
+$('signOut').onclick=async()=>{if(supabase)await supabase.auth.signOut();user=null;showAuth()};
+$('postForm').onsubmit=async e=>{e.preventDefault();const content=$('postInput').value.trim(),image_url=$('imageUrl').value.trim();if(!content&&!image_url){notice('Ajoute un texte ou une URL d’image.',true);return}if(supabase&&user){const {error}=await supabase.from('posts').insert({user_id:user.id,content,image_url:image_url||null});if(error){notice('Publication impossible : '+error.message,true);return}await loadPosts();notice('Publication partagée avec la communauté !')}else{const name=$('profileName').textContent;$('feed').prepend(postCard({display_name:name,content,image_url,created_at:new Date().toISOString()}));notice('Publication ajoutée à cet aperçu. Pour la partager entre appareils, configure Supabase.')} $('postInput').value='';$('imageUrl').value='';$('imageWrap').classList.add('hidden')};
+$('imageToggle').onclick=()=>$('imageWrap').classList.toggle('hidden');$('videoInfo').onclick=()=>notice('L’envoi de vidéos sera ajouté avec le stockage sécurisé des médias.');$('addStory').onclick=()=>notice('Les Stories seront ajoutées dans une prochaine version.');
+$('sidePost').onclick=$('mobilePost').onclick=()=>$('postInput').focus();
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-view]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const v=b.dataset.view;$('pageTitle').textContent=({'Accueil':'Ton espace, tes proches.','Amis':'Tes amis, ta communauté.','Messages':'Reste proche des tiens.','Vidéos':'Les moments à découvrir.','Notifications':'Ce qui se passe autour de toi.','Profil':'Ton profil Unity.'})[v]||v;if(v!=='Accueil')notice(v+' : cette section arrive dans une prochaine version.')});
+
+// Account recovery: email link via Supabase; SMS OTP requires an SMS provider configured in Supabase Auth.
+$('forgotPassword').onclick=()=>{$('recoveryPanel').classList.toggle('hidden');$('recoveryEmail').value=$('email').value||'';$('recoveryPhone').value=$('phoneNumber').value||''};
+$('recoveryMethod').onchange=()=>{const phone=$('recoveryMethod').value==='phone';$('recoveryEmailWrap').classList.toggle('hidden',phone);$('recoveryPhoneWrap').classList.toggle('hidden',!phone);$('resetPasswordWrap').classList.add('hidden')};
+$('sendRecovery').onclick=async()=>{
+ const method=$('recoveryMethod').value;
+ try{
+  if(!supabase){notice('La récupération réelle exige de configurer Supabase et un fournisseur e-mail/SMS.',true);return}
+  if(method==='email'){
+   const email=$('recoveryEmail').value.trim();if(!email){notice('Saisis l’adresse e-mail associée au compte.',true);return}
+   const redirectTo=window.location.origin+window.location.pathname;
+   const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo});
+   if(error)throw error;
+   notice('Si ce compte existe, un lien de récupération a été envoyé. Vérifie aussi les courriers indésirables.');
+  }else{
+   const phone=$('recoveryPhone').value.trim();if(!phone){notice('Saisis ton numéro au format international.',true);return}
+   const {error}=await supabase.auth.signInWithOtp({phone,options:{shouldCreateUser:false}});
+   if(error)throw error;
+   notice('Si le numéro est associé au compte et le SMS configuré, un code a été envoyé.');
+   const code=prompt('Saisis le code SMS reçu (ne le partage avec personne) :');
+   if(!code)return;
+   const {data,error:verifyError}=await supabase.auth.verifyOtp({phone,token:code.trim(),type:'sms'});
+   if(verifyError)throw verifyError;
+   user=data.user;
+   $('resetPasswordWrap').classList.remove('hidden');
+   notice('Numéro vérifié. Choisis un nouveau mot de passe.');
+  }
+ }catch(err){notice(err.message||'Impossible de lancer la récupération. Vérifie la configuration du service.',true)}
+};
+$('saveNewPassword').onclick=async()=>{
+ const password=$('newPassword').value;
+ if(password.length<8){notice('Choisis un mot de passe d’au moins 8 caractères.',true);return}
+ try{const {error}=await supabase.auth.updateUser({password});if(error)throw error;notice('Mot de passe mis à jour. Tu peux te reconnecter.');$('recoveryPanel').classList.add('hidden');$('newPassword').value='';}
+ catch(err){notice(err.message||'Impossible de changer le mot de passe.',true)}
+};
+if(supabase){const {data}=await supabase.auth.getSession();user=data.session?.user||null;if(user){const {data:profile}=await supabase.from('profiles').select('display_name').eq('id',user.id).maybeSingle();showApp(profile)}else showAuth()}else{setMode(false);$('authSubtitle').textContent='Découvre la maquette Unity ou configure Supabase pour activer les comptes et publications en ligne.'}
+</script>
+</body></html>
